@@ -1,0 +1,148 @@
+.animation( @name , @duration: 5s ) {
+    -webkit-animation: @name @duration ease-out; /* Safari 4+ */
+    -moz-animation:    @name @duration ease-out; /* Fx 5+ */
+    -o-animation:      @name @duration ease-out; /* Opera 12+ */
+    animation:         @name @duration ease-out; /* IE 10+, Fx 29+ */
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -o-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+
+.rounded( @radius: 7px ) {
+    -webkit-border-radius: @radius;
+    -khtml-border-radius: @radius;
+    -moz-border-radius: @radius;
+    -ms-border-radius: @radius;
+    -o-border-radius: @radius;
+    border-radius: @radius;
+}
+
+.border-radius(@topleft: 0, @topright: 0, @bottomright: 0, @bottomleft: 0) {
+    -webkit-border-top-right-radius: @topright;
+    -webkit-border-bottom-right-radius: @bottomright;
+    -webkit-border-bottom-left-radius: @bottomleft;
+    -webkit-border-top-left-radius: @topleft;
+    -moz-border-radius-topright: @topright;
+    -moz-border-radius-bottomright: @bottomright;
+    -moz-border-radius-bottomleft: @bottomleft;
+    -moz-border-radius-topleft: @topleft;
+    border-top-right-radius: @topright;
+    border-bottom-right-radius: @bottomright;
+    border-bottom-left-radius: @bottomleft;
+    border-top-left-radius: @topleft;
+}
+
+.box-sizing(@sizing: border-box) {
+    -ms-box-sizing: @sizing;
+    -moz-box-sizing: @sizing;
+    -webkit-box-sizing: @sizing;
+    box-sizing: @sizing;
+}
+
+.box-shadow(@arguments) {
+    -webkit-box-shadow: @arguments;
+    -moz-box-shadow: @arguments;
+    box-shadow: @arguments;
+}
+
+.transition(@which: all, @duration: .2s, @ease: ease-out) {
+    -webkit-transition: @which @duration @ease 0s;
+    -moz-transition: @which @duration @ease 0s;
+    -o-transition: @which @duration @ease 0s;
+    transition: @which @duration @ease 0s;
+}
+
+.opacity(@opacity: .5) {
+    -moz-opacity: @opacity;
+    -khtml-opacity: @opacity;
+    -webkit-opacity: @opacity;
+    opacity: @opacity;
+    @opperc: @opacity * 100;
+    -ms-filter: ~"progid:DXImageTransform.Microsoft.Alpha(opacity=@{opperc})";
+    filter: ~"alpha(opacity=@{opperc})";
+}
+
+.gradient(@color: #F5F5F5, @start: #EEE, @stop: #FFF) {
+    background: @color;
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(0, @start), color-stop(1, @stop));
+    background: -ms-linear-gradient(bottom, @start, @stop);
+    background: -moz-linear-gradient(center bottom, @start 0%, @stop 100%);
+    background: -o-linear-gradient(@stop, @start);
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",@stop,@start));
+}
+
+.stripes(@color: #333, @width: 10px) when (iscolor(@color)) {
+    background: -webkit-repeating-linear-gradient(-55deg, lighten(@color, 10%), lighten(@color, 10%) @width, @color @width, @color @width*2);
+    background: -moz-repeating-linear-gradient(-55deg, lighten(@color, 10%), lighten(@color, 10%) @width, @color @width, @color @width*2);
+    background: -o-repeating-linear-gradient(-55deg, lighten(@color, 10%), lighten(@color, 10%) @width, @color @width, @color @width*2);
+    background: repeating-linear-gradient(-55deg, lighten(@color, 10%), lighten(@color, 10%) @width, @color @width, @color @width*2);
+}
+
+.rotation(@deg: 5deg){
+    .transform(rotate(@deg));
+}
+
+.cover() {
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: 50%;
+}
+
+.contain() {
+    -webkit-background-size: contain;
+    background-size: contain;
+    background-position: 50%;
+}
+
+.placeholder(@color: #eee) {
+    ::-webkit-input-placeholder { color: @color; font-weight: normal; }
+    ::-moz-placeholder { color: @color; font-weight: normal; }		    /* firefox 19+ */
+    :-ms-input-placeholder { color: @color; font-weight: normal; }	    /* ie */
+    input:-moz-placeholder { color: @color; font-weight: normal; }
+}
+
+.randomColor() {
+    @randomColor: `(Math.random()*0xFFFFFF<<0).toString(16)`;
+    @colorHex: e(@randomColor);
+    @color: ~"#@{colorHex}";
+}
+
+.quote(@color: #aaa) {
+    quotes: '\f100' '\f101';
+    &:before { content: open-quote; margin-right: 3px; font-family: 'FontAwesome'; color: @color; }
+    &:after { content: close-quote; margin-left: 3px; font-family: 'FontAwesome'; color: @color; }
+}
+
+.textOverflow() { 
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    -o-hyphens: auto;
+    hyphens: auto;
+    -webkit-text-overflow: ellipsis;
+    -moz-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+}
+
+*::-moz-selection {
+    background: #56aae0;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.hidetext() {
+    text-indent: -9999px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.zoomcursor() {
+    cursor: pointer;
+    cursor: -webkit-zoom-in;
+    cursor: -moz-zoom-in;
+}

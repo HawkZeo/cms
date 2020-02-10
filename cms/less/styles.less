@@ -1,0 +1,30 @@
+a {
+  color: #000;
+  text-decoration: none;
+  .radius;
+  &:hover {
+    color: #fff;
+  }
+  span {
+    color : white;
+  }
+}
+
+.radius(@x: 7px){
+-webkit-border-radius: @x;
+  -khtml-border-radius: @x;
+-moz-border-radius: @x;
+-ms-border-radius: @x;
+-o-border-radius: @x;
+border-radius: @x;
+}
+
+.loop( @note ) when ( @note =< 5 ) {
+  content: "\f005";
+  .loop( @note + 1 ); // iterate.
+}
+
+.loop( @note ) when ( @note => 0 ) {
+  content: "\f005";
+  .loop( @note - 1 ); // iterate.
+}

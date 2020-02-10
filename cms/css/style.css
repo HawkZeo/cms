@@ -1,0 +1,160 @@
+@font-face {
+  font-family: "Font Awesome Regular";
+  font-style: normal;
+  font-weight: 400;
+  font-display: auto;
+  src: url("../fonts/fa-regular-400.eot");
+  src: url("../fonts/fa-regular-400.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/fa-regular-400.woff2") format("woff2"),
+    url("../fonts/fa-regular-400.woff") format("woff"),
+    url("../fonts/fa-regular-400.ttf") format("truetype"),
+    url("../fonts/fa-regular-400.svg#fontawesome") format("svg");
+}
+
+@font-face {
+  font-family: "Font Awesome Solid";
+  font-style: normal;
+  font-weight: 900;
+  font-display: auto;
+  src: url("../fonts/fa-solid-900.eot");
+  src: url("../fonts/fa-solid-900.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/fa-solid-900.woff2") format("woff2"),
+    url("../fonts/fa-solid-900.woff") format("woff"),
+    url("../fonts/fa-solid-900.ttf") format("truetype"),
+    url("../fonts/fa-solid-900.svg#fontawesome") format("svg");
+}
+
+@font-face {
+  font-family: "Font Awesome 5 Brands";
+  font-style: normal;
+  font-weight: 400;
+  font-display: auto;
+  src: url("../fonts/fa-brands-400.eot");
+  src: url("../fonts/fa-brands-400.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/fa-brands-400.woff2") format("woff2"),
+    url("../fonts/fa-brands-400.woff") format("woff"),
+    url("../fonts/fa-brands-400.ttf") format("truetype"),
+    url("../fonts/fa-brands-400.svg#fontawesome") format("svg");
+}
+
+html,
+body {
+  background-color: red;
+  font-size: 1em;
+  /* 1em = 16px */
+}
+
+p {
+  font-size: 2em;
+}
+
+span {
+  font-size: 1rem;
+}
+
+.avis {
+  /* em pour font-size
+     px pour padding 
+  */
+  background-color: white;
+  padding: 7px;
+  border-radius: 5px;
+  margin: 0;
+  width: 50vw;
+  overflow: hidden;
+  white-space: nowrap;
+  position: fixed;
+  left: calc(100vw / 2 - 50vw / 2);
+  top: calc(100vh / 2 - 50vh / 2);
+  height : 50vh;
+}
+.avis p {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.modal:before {
+  background-color:rgba(0,0,0,.5);
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  content: "";
+  position: fixed;
+  top : 0;
+  left: 0;
+}
+#piou{
+  display: none;
+}
+
+#piou:target{
+  display: block;
+}
+
+.close:before{
+  font-family: "Font Awesome Solid";
+  content: '\f00d';
+}
+
+.close *{
+  display : none;
+}
+
+blockquote:before {
+  content: "\201C";
+  font-size: 2em;
+  position: absolute;
+  right: calc(100% / 2 - 6px / 2);
+}
+
+blockquote {
+  position: relative;
+}
+
+.note:before {
+  font-family: "Font Awesome Solid";
+}
+.note[data-note="1"]:before {
+  content: "\f005";
+}
+.note[data-note="2"]:before {
+  content: "\f005\f005";
+}
+.note[data-note="3"]:before {
+  content: "\f005\f005\f005";
+}
+.note[data-note="4"]:before {
+  content: "\f005\f005\f005\f005";
+}
+.note[data-note="5"]:before {
+  content: "\f005\f005\f005\f005\f005";
+}
+
+.note:after {
+  font-family: "Font Awesome Regular";
+  position: relative;
+  left: -3px;
+}
+.note[data-note="4"]:after {
+  content: "\f005";
+}
+.note[data-note="3"]:after {
+  content: "\f005\f005";
+}
+.note[data-note="2"]:after {
+  content: "\f005\f005\f005";
+}
+.note[data-note="1"]:after {
+  content: "\f005\f005\f005\f005";
+}
+.note[data-note="0"]:after {
+  content: "\f005\f005\f005\f005\f005";
+}
+
+.note span {
+  position: absolute;
+  z-index: -1;
+  top: -9999em;
+  left: -9999em;
+}
